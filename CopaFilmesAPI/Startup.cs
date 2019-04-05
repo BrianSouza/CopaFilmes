@@ -31,12 +31,12 @@ namespace CopaFilmesAPI
             #endregion
 
             services.AddAutoMapper();
-            services.AddApiVersioning();
+            //services.AddApiVersioning();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "API - V1", Version = "v1" });
-            });
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new Info { Title = "API - V1", Version = "v1" });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
