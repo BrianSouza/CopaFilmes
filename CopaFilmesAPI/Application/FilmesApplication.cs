@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using CopaFilmesAPI.Application.DTOs.Request;
 using CopaFilmesAPI.Application.DTOs.Response;
 using CopaFilmesAPI.Domain.Servicos.Interfaces;
+using CopaFilmesAPI.Domain.Servicos.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,11 @@ namespace CopaFilmesAPI.Application
         public IEnumerable<FilmesResponse> ObterFilmes()
         {
             return _mapper.Map<IEnumerable<FilmesResponse>>(_filmesService.ObterFilmes());
+        }
+
+        public List<FilmesFinalistasResponse> ObterFilmesFinalistas(List<FilmesRequest> filmesSelecionados)
+        {
+            return _mapper.Map<List<FilmesFinalistasResponse>>(_filmesService.ObterFinalistas(_mapper.Map<List<FilmeVO>>(filmesSelecionados)));
         }
     }
 }

@@ -9,5 +9,7 @@ namespace CopaFilmesAPI.Domain.Servicos.Interfaces
     public interface IFilmesService
     {
         IEnumerable<FilmeVO> ObterFilmes();
+
+        List<FinalistasResultadoVO> ObterFinalistas(List<FilmeVO> filmesSelecionados);
     }
 }
