@@ -12,6 +12,6 @@ namespace CopaFilmesAPI.Domain.Servicos.ValueObjects
         public int Ano { get; set; }
         public double Nota { get; set; }
 
-        public int Posicao { get; set; }
+        public int Rodada { get; set; }
     }
 }

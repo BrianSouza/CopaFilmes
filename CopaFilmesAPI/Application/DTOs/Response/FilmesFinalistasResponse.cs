@@ -11,6 +11,6 @@ namespace CopaFilmesAPI.Application.DTOs.Response
         public string Titulo { get; set; }
         public int Ano { get; set; }
         public double Nota { get; set; }
-        public int Posicao { get; set; }
+        public int Rodada { get; set; }
     }
 }
