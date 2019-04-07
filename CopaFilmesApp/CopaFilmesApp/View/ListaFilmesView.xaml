@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CopaFilmesApp"
+             x:Class="CopaFilmesApp.View.ListaFilmesView"
+             Title="Fase de Seleção">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Gerar" Command="{Binding IniciarCopaCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ListView
+            x:Name="ListaFilmes"
+            ItemsSource="{Binding Filmes,Mode=TwoWay}"
+            Header="{Binding}"
+            SelectionMode="Single">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <ContentView BackgroundColor="LightGray">
+                        <Label Margin="10" TextColor="White" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" Text="{Binding ContadorHeader, StringFormat='Selecionados {0} de 8 Filmes'}" />
+                    </ContentView>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Titulo}" TextColor="Black"
+                              Detail="{Binding Ano}" DetailColor="Gray">
+                        <TextCell.ContextActions>
+                            <MenuItem Clicked="MenuItem_Clicked"
+                                      CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" >
+                            </MenuItem>
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

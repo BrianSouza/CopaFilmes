@@ -55,7 +55,13 @@ namespace CopaFilmesAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            #if DEBUG
+                // For Debug in Kestrel
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Web API V1");
+            #else
+            // To deploy on IIS
+                c.SwaggerEndpoint("/filmes/swagger/v1/swagger.json", "Web API V1");
+            #endif
             });
             app.UseMvc();
         }
