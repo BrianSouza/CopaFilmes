@@ -14,9 +14,9 @@ namespace CopaFilmesApp
         {
             DependencyService.Register<IFilmesProvider, FilmesProvider>();
             DependencyService.Register<IMessageService, MessageService>();
+            DependencyService.Register<Services.Interface.INavigation, Services.Interface.Navigation>();
             InitializeComponent();
             MainPage = new NavigationPage(new ListaFilmesView()) { BarBackgroundColor = Color.DimGray , BarTextColor = Color.White};
-            
         }
 
         protected override void OnStart()

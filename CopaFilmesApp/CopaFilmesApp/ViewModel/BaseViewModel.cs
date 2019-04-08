@@ -12,6 +12,8 @@ namespace CopaFilmesApp.ViewModel
     {
         public IFilmesProvider filmesProvider = null;
         public IMessageService messageService = null;
+        public Services.Interface.INavigation navigation = null;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         
@@ -19,6 +21,7 @@ namespace CopaFilmesApp.ViewModel
         {
             filmesProvider = DependencyService.Get<IFilmesProvider>();
             messageService = DependencyService.Get<IMessageService>();
+            navigation = DependencyService.Get<Services.Interface.INavigation>();
         }
 
         protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)

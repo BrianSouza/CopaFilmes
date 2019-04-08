@@ -33,18 +33,22 @@ namespace CopaFilmesApp.ViewModel
 
         public ListaFilmesViewModel()
         {
-            IniciarCopaCommand = new Command(IniciarCopa);
+            IniciarCopaCommand = new Command(async ()=> await IniciarCopa());
             Task.Run(async ()=> await CarregarListaFilmes());
         }
-        private void IniciarCopa()
+        private async Task IniciarCopa()
         {
             if (Filmes.Count == 8)
             {
-                Task.Run(async () => await filmesProvider.SentFilmesAsync(Filmes));
+                ObservableCollection<FilmesFinalistas> finalistas = null;
+                var listFinalista = await filmesProvider.SentFilmesAsync(Filmes);
+                 finalistas = new ObservableCollection<FilmesFinalistas>(listFinalista);
+                if (finalistas.Count > 0)
+                    await navigation.NavegarParaResultado(finalistas);
             }
             else
             {
-                messageService.ShowAsync("Alerta", "Número de filmes escolhidos deve ser 8.");
+                await messageService.ShowAsync("Alerta", "Número de filmes escolhidos deve ser 8.");
             }
         }
 
