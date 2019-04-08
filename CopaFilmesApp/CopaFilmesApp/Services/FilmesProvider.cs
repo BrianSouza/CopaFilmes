@@ -28,6 +28,7 @@ namespace CopaFilmesApp.Services
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 throw ex;
             }
         }
@@ -44,6 +45,7 @@ namespace CopaFilmesApp.Services
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 throw;
             }
         }

@@ -12,9 +12,8 @@ namespace CopaFilmesApp.ViewModel
     {
         private int _contadorHeader;
         private ObservableCollection<FilmesModel> _filmes;
-        private readonly ICommand iniciarCopaCommand;
         //private ICommand deletarFilmeCommand;
-        private readonly FilmesModel filmeSelecionado;
+        //private readonly FilmesModel filmeSelecionado;
 
 
         public ICommand IniciarCopaCommand { get; set; }

@@ -10,11 +10,7 @@ namespace CopaFilmesApp.ViewModel
     {
         private ObservableCollection<FilmesFinalistas> _listaFinalistas;
         public ObservableCollection<FilmesFinalistas> ListaFinalistas { get => _listaFinalistas; set => SetProperty(ref _listaFinalistas, value); }
-        //private string tituloPrimeiro;
-        //private string tituloSegundo;
-        //public string TituloPrimeiro { get => tituloPrimeiro; set => SetProperty(ref tituloPrimeiro ,value); }
-        //public string TituloSegundo { get => tituloSegundo; set => SetProperty(ref tituloSegundo , value); }
-
+       
         public ResultadoViewModel(ObservableCollection<FilmesFinalistas> listaFinalistas)
         {
             listaFinalistas[0].Rodada = 1;
