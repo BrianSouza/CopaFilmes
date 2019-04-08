@@ -43,7 +43,7 @@ namespace CopaFilmesAPI.Controllers
             //    new FilmesRequest(){ Id= "H", Titulo = " TST H", Ano = 2018 , Nota = 7.8}
 
             //};
-            if (filmesSelecionados.Count != 8)
+            if (filmesSelecionados== null || filmesSelecionados.Count != 8)
                 return BadRequest(
                     new {
                         Mensagem = "São necessários 8 filmes para iniciar a copa.",

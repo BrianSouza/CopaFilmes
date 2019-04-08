@@ -5,22 +5,25 @@
              Title="Resultado">
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray">
-            <StackLayout Orientation="Horizontal" HeightRequest="60" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="15">
-                <StackLayout BackgroundColor="DimGray" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" >
-                    <Label Margin="5,0,5,0" VerticalOptions="CenterAndExpand" FontSize="Large"  Text="1º" HorizontalTextAlignment="Center" TextColor="White"></Label>
-                </StackLayout>
-                <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White" VerticalOptions="FillAndExpand">
-                    <Label  VerticalOptions="CenterAndExpand" Text="{Binding TituloPrimeiro}" FontSize="Medium" HorizontalOptions="Start" HorizontalTextAlignment="Start" TextColor="Black"></Label>
-                </StackLayout>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" HeightRequest="60" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="15">
-                <StackLayout BackgroundColor="DimGray" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" >
-                    <Label  Margin="5,0,5,0" VerticalOptions="CenterAndExpand" FontSize="Large"  Text="2º" HorizontalTextAlignment="Center" TextColor="White"></Label>
-                </StackLayout>
-                <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White" VerticalOptions="FillAndExpand">
-                    <Label  VerticalOptions="CenterAndExpand" Text="{Binding TituloSegundo}" HorizontalOptions="Start" FontSize="Medium" HorizontalTextAlignment="Start" TextColor="Black"></Label>
-                </StackLayout>
-            </StackLayout>
+            <ListView
+                ItemsSource="{Binding ListaFinalistas}"
+                RowHeight="80"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="15">
+                                <StackLayout BackgroundColor="DimGray" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" >
+                                    <Label Margin="5,0,5,0" VerticalOptions="CenterAndExpand" FontSize="Large"  Text="{Binding Rodada, StringFormat=' {0}º'}" HorizontalTextAlignment="Center" TextColor="White"></Label>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                                    <Label  VerticalOptions="CenterAndExpand" Text="{Binding Titulo}" FontSize="Medium" HorizontalOptions="Start" HorizontalTextAlignment="Start" TextColor="Black"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

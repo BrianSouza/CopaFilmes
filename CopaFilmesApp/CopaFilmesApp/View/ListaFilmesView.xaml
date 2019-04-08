@@ -5,6 +5,7 @@
              x:Class="CopaFilmesApp.View.ListaFilmesView"
              Title="Fase de Seleção">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Recomeçar" Command="{Binding RefreshList}"></ToolbarItem>
         <ToolbarItem Text="Gerar" Command="{Binding IniciarCopaCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout>

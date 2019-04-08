@@ -21,7 +21,7 @@ namespace CopaFilmesApp.Services
         {
             try
             {
-                string  url = "http://192.168.0.40/Filmes/api/Filmes/ObterFilmes/";
+                string url = "https://webapplication120190408111427.azurewebsites.net/api/Filmes/ObterFilmes";
                 var response = await client.GetStringAsync(url);
                 var filmes = JsonConvert.DeserializeObject<List<FilmesModel>>(response);
                 return filmes;
@@ -36,9 +36,9 @@ namespace CopaFilmesApp.Services
         {
             try
             {
-                string url = "http://192.168.0.40/Filmes/api/Filmes/ObterFilmesFinalistas/";
+                string url = "https://webapplication120190408111427.azurewebsites.net/api/Filmes/ObterFilmesFinalistas/";
                 string jsonString = JsonConvert.SerializeObject(filmesSelecionados);
-                var response = await client.PostAsync(url , new StringContent(jsonString, Encoding.UTF8, "application/json"));
+                var response = await client.PostAsync(url, new StringContent(jsonString, Encoding.UTF8, "application/json"));
                 var filmes = JsonConvert.DeserializeObject<List<FilmesFinalistas>>(await response.Content.ReadAsStringAsync());
                 return filmes;
             }
